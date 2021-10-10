@@ -1,4 +1,18 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
+// Add third party table functionality to our SQL QB table
 
-// Write your JavaScript code.
+$(document).ready(function () {
+    $('#qbTable').DataTable({
+        "scrollY": "450px",
+        "scrollCollapse": true,
+        "paging": true
+    })
+});
+
+$(document).ready(function () {
+    $('#qbTable2').DataTable({
+        "scrollY": "450px",
+        "scrollCollapse": true,
+        "paging": true
+    })
+});

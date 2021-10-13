@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Player>
+﻿@* Add enumerable list of players to view *@
+@model IEnumerable<Player>
 @{
     ViewData["Title"] = "Index";
 }
@@ -14,6 +15,7 @@
             <br /><br />
         </div>
     </div>
+    @* If our model has quarterbacks in the db, print them to the following table *@
         @if(Model.Count() > 0)
     {
         <table id="qbTable" class=""contenteditable table-bordered table-striped table" style="width=100%">
@@ -48,6 +50,7 @@
                     </th>
                 </tr>
             </thead>
+            @* Loop through the objects in our model to form the rows of our table *@
             <tbody>
                 @foreach(var obj in Model)
                 {
@@ -65,6 +68,7 @@
                             @obj.attempts
                         </td>
                         <td width="5%">
+                            @* Round decimals to the correct number of decimal places *@
                             @Math.Round(obj.completion_percent,1)
                         </td>
                         <td width="5%">
@@ -151,6 +155,7 @@
             </tbody>
         </table>
     }
+    @* If no quarterbacks exist in the database, do not print the table. Print a P element. *@
     else
     {
         <p> No Players Exist in Database </p>

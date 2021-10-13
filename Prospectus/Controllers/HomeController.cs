@@ -17,7 +17,9 @@ namespace Prospectus.Controllers
         {
             _logger = logger;
         }
-
+        // Individual action method
+        // If somone calls Index, controller will hit this breakpoint
+        // Method will return View(); Go to matching folder name
         public IActionResult Index()
         {
             return View();

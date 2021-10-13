@@ -45,12 +45,17 @@ namespace Prospectus
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            // User needs to use HTTPS protocol
             app.UseHttpsRedirection();
+            // User will be served static files 
+            // Check wwwroot folder
             app.UseStaticFiles();
 
             app.UseRouting();
 
             app.UseAuthorization();
+            // After going through middleware it will hit this registered endpoint
+            // Default is Player/Index
 
             app.UseEndpoints(endpoints =>
             {

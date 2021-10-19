@@ -75,6 +75,8 @@ namespace Prospectus.Models
         // initializes itself with attributes from database model
         public PlayerBasicStatModel(Player databaseModel)
         {
+            PlayerName = databaseModel.player;
+            TeamName = databaseModel.team_name;
             completions = databaseModel.completions;
             attempts = databaseModel.attempts;
             completion_percent = databaseModel.completion_percent;
@@ -84,6 +86,9 @@ namespace Prospectus.Models
             interceptions = databaseModel.interceptions;
         }
         // Implement a class for the basic stats found in the first grid on the page here!
+        // Can have attributed replicated in each Model (PlayerName + TeamName)
+        public string PlayerName { get; set; }
+        public string TeamName { get; set; }
         // Completions
         public int completions { get; set; }
         // Attempts

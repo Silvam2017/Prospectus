@@ -51,7 +51,8 @@
             </thead>
             @* Loop through the objects in our model to form the rows of our table *@
             <tbody>
-                @foreach(var obj in Model.DetailedStatList)
+
+                @foreach(var obj in Model.BasicStatList)
                 {
                     <tr>
                         <td width="10%">
@@ -60,11 +61,6 @@
                         <td width="5%">
                             @obj.TeamName
                         </td>
-                    </tr>
-                }
-                @foreach(var obj in Model.BasicStatList)
-                {
-                    <tr>
                         <td width="5%">
                             @obj.completions
                         </td>

@@ -1,5 +1,4 @@
-﻿@* Add enumerable list of players to view *@
-@model IEnumerable<Player>
+﻿@model Prospectus.Models.PlayerListModel
 @{
     ViewData["Title"] = "Index";
 }
@@ -15,8 +14,8 @@
             <br /><br />
         </div>
     </div>
-    @* If our model has quarterbacks in the db, print them to the following table *@
-        @if(Model.Count() > 0)
+        @* If our model has quarterbacks in the db, print them to the following table *@
+        @if(Model.BasicStatList.Count() > 0)
     {
         <table id="qbTable" class=""contenteditable table-bordered table-striped table" style="width=100%">
             <thead>
@@ -52,15 +51,20 @@
             </thead>
             @* Loop through the objects in our model to form the rows of our table *@
             <tbody>
-                @foreach(var obj in Model)
+                @foreach(var obj in Model.DetailedStatList)
                 {
                     <tr>
                         <td width="10%">
-                            @obj.player
+                            @obj.PlayerName
                         </td>
                         <td width="5%">
-                            @obj.team_name
+                            @obj.TeamName
                         </td>
+                    </tr>
+                }
+                @foreach(var obj in Model.BasicStatList)
+                {
+                    <tr>
                         <td width="5%">
                             @obj.completions
                         </td>
@@ -82,73 +86,6 @@
                         </td>
                         <td width="5%">
                             @obj.interceptions
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-        <table id="qbTable2" class=""contenteditable table-bordered table-striped table" style="width:100%">
-            <thead>
-                <tr>
-                    <th>
-                        Player Name
-                    </th>
-                    <th>
-                        Team
-                    </th>
-                    <th>
-                        Avg. Depth of Target
-                    </th>
-                    <th>
-                       Avg. Time to Throw
-                    </th>
-                    <th>
-                        Drops
-                    </th>
-                    <th>
-                        Drop Rate
-                    </th>
-                    <th>
-                        TO Worthy Plays
-                    </th>
-                    <th>
-                        TWP Rate
-                    </th>
-                    <th>
-                        PFF Pass Grade
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach(var obj in Model)
-                {
-                    <tr>
-                        <td width="10%">
-                            @obj.player
-                        </td>
-                        <td width="5%">
-                            @obj.team_name
-                        </td>
-                        <td width="5%">
-                            @Math.Round(obj.avg_depth_of_target,1)
-                        </td>
-                        <td width="5%">
-                            @Math.Round(obj.avg_time_to_throw,2)
-                        </td>
-                        <td width="5%">
-                            @obj.drops
-                        </td>
-                        <td width="5%">
-                            @Math.Round(obj.drop_rate,1)
-                        </td>
-                        <td width="5%">
-                            @obj.turnover_worthy_plays
-                        </td>
-                        <td width="5%">
-                            @Math.Round(obj.twp_rate,1)
-                        </td>
-                        <td width="5%">
-                            @Math.Round(obj.grades_pass,1)
                         </td>
                     </tr>
                 }

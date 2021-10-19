@@ -27,9 +27,10 @@ namespace Prospectus.Controllers
         {
             // Create enumerable of Player, call it object list
             // Retrieve it from DB with entity framework and store it in objlist
-            IEnumerable<Player> objList = _db.Player;
+            IEnumerable<Player> Players = _db.Player;
+            PlayerListModel Model = new PlayerListModel( Players, 2021);
             // Return list to be displayed in view
-            return View(objList);
+            return View(Model);
         }
         // Can add other CRUD methods here
         // Create = want to add QB's via web app and not SQL database

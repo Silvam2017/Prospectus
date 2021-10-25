@@ -1,15 +1,112 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+:root {
+    --primary: #0076B6 !important;
+    --secondary: #B0B7BC !important;
+}
+
+.navBorder {
+    border: 1px solid black !important;
+}
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
 }
 
+body {
+    background-color: #c9cbcd !important;
+}
+
+.primaryLionsText {
+    color: #0076B6 !important;
+}
+
+.subLionsText {
+    color: #B0B7BC !important;
+}
+
+.headerText {
+    text-decoration: underline;
+    color: #0076B6 !important;
+}
+
+
+.qbHeader {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;
+}
+
+.qbContainer {
+    background-color: #c9cbcd !important;
+    margin-top: 0;
+    padding-top: 0;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: .5vw .3vw .3vw black;
+}
+
+.qbPhoto {
+    background-image: url(../assets/goff-stafford.jpg);
+    background-position: 60% 15%;
+    width: 100%;
+    height: 25rem;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+
+.qbTextContainer {
+    background: linear-gradient(to right, #0076B6, #B0B7BC);
+    border-radius: 8px;
+    border: 1px solid black;
+}
+
+.qbText {
+    font-size: 1.8vw;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.contact {
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.statTable {
+    border: 1px solid black;
+    border-radius: 8px;
+    margin-top: 0;
+    margin: 1vw;
+    background-color: white;
+}
+
+.mainContact {
+    text-decoration: underline;
+    font-size: 1.8vw !important;
+}
+.tableTitle {
+    text-decoration: underline;
+    font-size: 1.8vw !important;
+}
+
+contactHeader {
+    font-size: 1.2vw !important;
+    color: #B0B7BC;
+}
+
+contactSubhead {
+    font-size: 1.2vw !important;
+    color: #B0B7BC;
 }
 
 .btn-primary {
@@ -27,7 +124,8 @@ a {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
+    background-color: #c9cbcd !important;
 }
 @media (min-width: 768px) {
   html {
@@ -69,6 +167,7 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
 
 .table{
     background: #fff;

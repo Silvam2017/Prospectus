@@ -2,24 +2,25 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<div class="container p-3">
-    <div class="row pt-4" >
-        <div class="col-6">
-            <h2 class="text-primary">
-                2020 Quarterback Statistics
-            </h2>
-        </div>
-        <div class="col-6">
-            <br /><br />
-        </div>
+<div class="qbContainer">
+<div class="container qbPhoto">
+    <div class="col-6 qbTextContainer">
+        <h2 class="text qbText">
+            2020 Quarterback Statistics
+        </h2>
     </div>
+</div>
+<div>
+    
+</div>
+<div class="container p-3 statTable">
         @* If our model has quarterbacks in the db, print them to the following table *@
         @if(Model.BasicStatList.Count() > 0)
     {
-        <table id="qbTable" class=""contenteditable table-bordered table-striped table" style="width=100%">
+        <h2 class="primaryLionsText tableTitle">Table of Statistics</h2>
+        <table id="qbTable" class=""contenteditable table-bordered table-striped table" style="width:100%">
             <thead>
-                <tr>
+                <tr> 
                     <th>
                         Player Name
                     </th>
@@ -51,7 +52,6 @@
             </thead>
             @* Loop through the objects in our model to form the rows of our table *@
             <tbody>
-
                 @foreach(var obj in Model.BasicStatList)
                 {
                     <tr>
@@ -93,4 +93,33 @@
     {
         <p> No Players Exist in Database </p>
     }
+</div>
+<div class="container contact">
+    <div class="col">
+        <h2 class="primaryLionsText row mainContact">
+            Contact
+        </h2>
+    </div>
+      <div class="row">
+    <div class="col">
+        <h4 class="contactHeader">
+            Address
+        </h4>
+    </div>
+    <div class="col">
+        <h4 class="contactHeader">
+            Email
+        </h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+        <a href="https://goo.gl/maps/ynuMq45S1yUtrj6e6">222 Republic Dr, Allen Park, MI 48101</a>
+    </div>
+    <div class="col">
+        <a href = "mailto: Detroit.Lions@Nfl.net">Detroit.Lions@Nfl.net</a>
+    </div>
+  </div>
+</div>
+
 </div>

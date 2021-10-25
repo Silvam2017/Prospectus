@@ -7,12 +7,13 @@ using System.ComponentModel.DataAnnotations;
 namespace Prospectus.Models
 {
     // Enumerator Doc
-    // https://docs.microsoft.com/en-us/dotnet/api/system.collections.ienumerable?view=net-5.0
+    // https://docs.microsoft.com/en-us/dotnet/api/system.collections.IQueryable?view=net-5.0
     // This is not an instance of a statList
     // Not a super, just a container
     public class PlayerListModel
     {
-        public PlayerListModel(IEnumerable<Player> Players, int Year)
+        // Constructor passing IQueryable of Player from DB called Players and Year
+        public PlayerListModel(IQueryable<Player> Players, int Year)
         {
             // Instantiate each list
             List<PlayerDetailStatModel> detailedStatList = new List<PlayerDetailStatModel>();
@@ -34,9 +35,10 @@ namespace Prospectus.Models
         }
 
         // Children do not need Year
+        [Range(1950,2021)]
         public int Year { get; set; }
         public List<PlayerDetailStatModel> DetailedStatList { get; set; }
-        // LIST is the type for IEnumerable
+        // LIST is the type for IQueryable
         // Does not extend PlayerListModel
         public List<PlayerBasicStatModel> BasicStatList { get; set; }
     }
@@ -87,21 +89,41 @@ namespace Prospectus.Models
         }
         // Implement a class for the basic stats found in the first grid on the page here!
         // Can have attributed replicated in each Model (PlayerName + TeamName)
+        [Required]
+        [StringLength(40, ErrorMessage = "Player Name cannot exceed 40 characters.")]
         public string PlayerName { get; set; }
+        [Required]
+        [RegularExpression(@"/^[a-z ,.'-]+$/i",
+            ErrorMessage = "Team Name Invalid.")]
+        [StringLength(4, ErrorMessage ="Team Name cannot exceed 4 characters.")]
         public string TeamName { get; set; }
         // Completions
+        [Required]
+        [Range(0, 800)]
         public int completions { get; set; }
         // Attempts
+        [Required]
+        [Range(0, 1000)]
         public int attempts { get; set; }
         // Completion %
+        [Required]
+        [Range(0, 1)]
         public decimal completion_percent { get; set; }
         // Yards
+        [Required]
+        [Range(0, 6000)]
         public int yards { get; set; }
         // Yards Per Attempt
+        [Required]
+        [Range(0, 25)]
         public decimal ypa { get; set; }
         // Touchdowns
+        [Required]
+        [Range(0, 60)]
         public int touchdowns { get; set; }
         // Interceptions
+        [Required]
+        [Range(0, 40)]
         public int interceptions { get; set; }
     }
 

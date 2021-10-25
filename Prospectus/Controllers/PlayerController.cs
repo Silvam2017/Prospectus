@@ -25,13 +25,15 @@ namespace Prospectus.Controllers
 
         public IActionResult Index()
         {
-            // Create enumerable of Player, call it object list
-            // Retrieve it from DB with entity framework and store it in objlist
-            IEnumerable<Player> Players = _db.Player;
-            PlayerListModel Model = new PlayerListModel( Players, 2021);
+            // Create IQueryable of Player, call it object list
+            // https://stackoverflow.com/questions/252785/what-is-the-difference-between-iqueryablet-and-ienumerablet
+            IQueryable<Player> Players = _db.Player;
+            // Using our PlayerListModel, we create an object, Model, based off PlayerListModel and pass in our DB (Players) and the year 2020
+            PlayerListModel Model = new PlayerListModel( Players, 2020);
             // Return list to be displayed in view
             return View(Model);
         }
+
         // Can add other CRUD methods here
         // Create = want to add QB's via web app and not SQL database
         // Edit = make corrections/changes to QB stats

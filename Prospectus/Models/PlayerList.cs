@@ -6,13 +6,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Prospectus.Models
 {
-    // Enumerator Doc
+    // IQueryable Doc
     // https://docs.microsoft.com/en-us/dotnet/api/system.collections.IQueryable?view=net-5.0
     // This is not an instance of a statList
     // Not a super, just a container
+    // Keep DB logic out of model to remain SOLID
     public class PlayerListModel
     {
         // Constructor passing IQueryable of Player from DB called Players and Year
+        // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-constructors
         public PlayerListModel(IQueryable<Player> Players, int Year)
         {
             // Instantiate each list
